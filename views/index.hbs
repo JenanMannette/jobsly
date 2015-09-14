@@ -1,0 +1,15 @@
+<h4>Current Open Postings</h4> <button>Create New Job Posting</button>
+
+<!--Jobs show here -->
+
+{{#postings}}
+    <div>
+        {{title}} - {{company}} - posted {{timestamp}}
+        <p> {{description}} </p>
+        <a href="/postings/{{_id}}">View Job</a><br>
+    </div>
+{{/postings}}
+
+
+<a href="postings/new">NEW</a>
+

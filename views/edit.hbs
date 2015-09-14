@@ -1,0 +1,18 @@
+EDIT PAGE
+
+<form action="/" method="post">
+    <label for="title">Job Title</label>
+        <input type="text" id="title" name="title" value="{{title}}"/>
+
+    <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" value="{{company}}"/>
+
+    <label for="description">Description</label>
+        <textarea type="text" id="description" name="description">{{description}}</textarea>
+
+    <label for="responsibilities">Responsibilities</label>
+        <textarea type="text" id="responsibilities" name="responsibilities">{{responsibilities}}</textarea>
+    The posting is... <input type="radio" value="Open"/> <input type="radio" value="Fulfilled"/>
+    <input type="submit" value="Save Posting"/> <a href="javascript:history.back()">Cancel</a> <a href="/postings/{{_id}}/delete">Delete</a>
+</form>
+
