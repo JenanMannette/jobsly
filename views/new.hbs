@@ -1,20 +1,27 @@
-<!--NEW PAGE-->
+{{#if newError}}
+    <h1>{{newError}}</h1>
+{{/if}}
+
+
 <h4>Create Posting</h4>
 
 <form action="/" method="post">
     <label for="title">Job Title</label>
-        <input type="text" id="title" name="title"/>
+    <input type="text" id="title" name="title"/>
 
     <label for="company">Company Name</label>
-        <input type="text" id="company" name="company"/>
+    <input type="text" id="company" name="company"/>
 
     <label for="description">Job Description</label>
-        <textarea type="text" id="description" name="description"></textarea>
+    <textarea type="text" id="description" name="description" rows="8" cols="40"></textarea>
 
     <label for="responsibilities">Responsibilities</label>
-        <textarea type="text" id="responsibilities" name="responsibilities"></textarea>
+    <textarea type="text" id="responsibilities" name="responsibilities" rows="8" cols="40"></textarea>
 
-    <input type="submit" value="Create Posting"/> <a href="/">Cancel</a>
+    <!--hidden input test-->
+        <input type="checkbox" class="hidden-open-status" name="isOpen" checked="true"/>
+        <span name="timestamp" value="Date.now()"></span>
+
+
+    <input type="submit" value="Create Posting"/> || <a href="/">Cancel</a>
 </form>
-
-<!--<a href="javascript:history.back()">Go Back</a>-->

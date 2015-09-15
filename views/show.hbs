@@ -1,13 +1,40 @@
-SHOW PAGE
-
+<a href="javascript:history.back()">Back to all postings</a>
 
 {{#postings}}
-    <!--title, company, date, description-->
-    {{title}}
-    {{company}}
-    {{description}}
-    {{responsibilities}}
+    <h4>{{title}} - {{company}}</h4> <a href="/postings/{{_id}}/edit">Edit Job Posting</a>
+    <p>Posted (date){{timestamp}}</p>
+    <p>{{description}}</p>
+    <p>Responsibilities:</p>
+    <p>{{responsibilities}}</p>
+
+    <a href="/postings/{{_id}}/applicants">Apply for job</a>
+    {{#if open}}This posting is still open.{{/if}}
+
+
+<h4>Current Applicants</h4>
+    {{#each applicants}}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Link to Resume</th>
+            </tr>
+        </thead>
+        <tbody>
+
+             <tr>
+                <td>{{applicantName}}</td>
+                <td>{{applicantEmail}}</td>
+                <td>{{applicantResume}}</td>
+                <td>
+                    <form action="/postings/{{../_id}}/applicants/delete" method="post">
+                        <input type="submit" value="Delete"/>
+                        <input type="hidden" name="applicant" value="{{this}}">
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {{/each}}
 {{/postings}}
-
-
-<a href="javascript:history.back()">Go Back</a>

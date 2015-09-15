@@ -1,18 +1,33 @@
-EDIT PAGE
+<h4>Edit Posting</h4>
 
-<form action="/" method="post">
+<form action="/postings/{{_id}}/update" method="post">
     <label for="title">Job Title</label>
         <input type="text" id="title" name="title" value="{{title}}"/>
-
     <label for="company">Company Name</label>
         <input type="text" id="company" name="company" value="{{company}}"/>
-
     <label for="description">Description</label>
         <textarea type="text" id="description" name="description">{{description}}</textarea>
-
     <label for="responsibilities">Responsibilities</label>
         <textarea type="text" id="responsibilities" name="responsibilities">{{responsibilities}}</textarea>
-    The posting is... <input type="radio" value="Open"/> <input type="radio" value="Fulfilled"/>
-    <input type="submit" value="Save Posting"/> <a href="javascript:history.back()">Cancel</a> <a href="/postings/{{_id}}/delete">Delete</a>
+
+    The posting is...
+    <!--fix this.-->
+    {{#if isOpen}}
+        <input type="radio" name="isOpen" checked="true"/> Open
+        <input type="radio" name="isOpen"/> Fulfilled
+    {{else}}
+        <input type="radio" name="isOpen"/> Open
+        <input type="radio" name="isOpen" checked="true"/> Fulfilled
+    {{/if}}
+
+    <input type="submit" value="Save Posting"/> ||
+
 </form>
+
+<a href="javascript:history.back()">Cancel</a> ||
+
+<form action="/postings/{{_id}}/delete" method="post">
+    <input type="submit" value="Delete Posting"/>
+</form>
+
 
