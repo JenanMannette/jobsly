@@ -10,14 +10,15 @@
     <label for="responsibilities">Responsibilities</label>
         <textarea type="text" id="responsibilities" name="responsibilities">{{responsibilities}}</textarea>
 
-    The posting is...
-    <!--fix this.-->
-    {{#if isOpen}}
-        <input type="radio" name="isOpen" checked="true"/> Open
-        <input type="radio" name="isOpen"/> Fulfilled
+
+
+    <!--The posting is...-->
+    {{#if ../open}}
+        <input type="radio" name="isOpen" value="true" checked/> Open
+        <input type="radio" name="isOpen" value="false"/> Filled
     {{else}}
-        <input type="radio" name="isOpen"/> Open
-        <input type="radio" name="isOpen" checked="true"/> Fulfilled
+        <input type="radio" name="isOpen" value="false"/> Open
+        <input type="radio" name="isOpen" value="true" checked/> Filled
     {{/if}}
 
     <input type="submit" value="Save Posting"/> ||

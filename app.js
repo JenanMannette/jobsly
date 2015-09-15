@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var port = 8080;
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -56,5 +58,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+
+app.listen(port);
+console.log('Running on ' + port);
 
 module.exports = app;
